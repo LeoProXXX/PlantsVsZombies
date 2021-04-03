@@ -1,7 +1,7 @@
 package sample;
 
 public class SaveGameNotFound extends CustomException {
-    public SaveGameNotFound(){
+    public SaveGameNotFound() {
         super();
     }
 }

@@ -1,7 +1,7 @@
 package sample;
 
 public class UserAlreadyExistsException extends CustomException {
-    public UserAlreadyExistsException(){
+    public UserAlreadyExistsException() {
         super();
     }
 }

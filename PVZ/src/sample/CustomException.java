@@ -1,7 +1,7 @@
 package sample;
 
-public class CustomException extends Exception{
-    public CustomException(){
+public class CustomException extends Exception {
+    public CustomException() {
         super();
     }
 }

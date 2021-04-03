@@ -1,10 +1,12 @@
 package sample;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.lang.*;
@@ -38,26 +40,23 @@ public class ControllerLogin {
     public void submit() throws IOException {
         tf_error.setVisible(false);
         tf_error.setText("");
-        String name=tf_input.getText();
-        if(name.equals("") || !Character.isLetter(name.charAt(0))){
-            try{
+        String name = tf_input.getText();
+        if (name.equals("") || !Character.isLetter(name.charAt(0))) {
+            try {
                 throw new InvalidUsernameException();
-            }
-            catch (Exception e){
+            } catch (Exception e) {
                 tf_error.setVisible(true);
                 tf_error.setText("Error: Invalid Username.");
                 tf_input.setText("");
             }
-        }
-        else{
-            Boolean f=true;
-            for(User u:Login.getUsers()){
-                if(u.getName().equals(name)){
-                    f=false;
-                    try{
+        } else {
+            Boolean f = true;
+            for (User u : Login.getUsers()) {
+                if (u.getName().equals(name)) {
+                    f = false;
+                    try {
                         throw new UserAlreadyExistsException();
-                    }
-                    catch (Exception e){
+                    } catch (Exception e) {
                         tf_error.setVisible(true);
                         tf_error.setText("ERROR: User Already Exists.");
                         tf_input.setText("");
@@ -65,12 +64,12 @@ public class ControllerLogin {
                     break;
                 }
             }
-            if(f){
-                User u=new User(name);
-                ArrayList<User> temp=Login.getUsers();
+            if (f) {
+                User u = new User(name);
+                ArrayList<User> temp = Login.getUsers();
                 temp.add(u);
-                for(User i: temp){
-                    if(name.equals(i.getName())){
+                for (User i : temp) {
+                    if (name.equals(i.getName())) {
                         i.StartPage(window);
                     }
                 }
@@ -92,8 +91,8 @@ public class ControllerLogin {
     }
 
     public void existing_user_button() throws IOException {
-        ArrayList<User> temp=Login.getUsers();
-        if(temp.size()==0){
+        ArrayList<User> temp = Login.getUsers();
+        if (temp.size() == 0) {
             Alert alert = new Alert(Alert.AlertType.NONE, "No User Saved Currently", ButtonType.OK);
             alert.showAndWait();
             return;
@@ -102,13 +101,12 @@ public class ControllerLogin {
         d.setHeaderText("Select a User");
         d.setContentText("Please select a User to play");
         d.showAndWait();
-        if(d.getResult()==null){
+        if (d.getResult() == null) {
             System.out.println("back");
-        }
-        else{
-            String name= d.getResult().toString();
-            for(User i: temp){
-                if(name.equals(i.getName())){
+        } else {
+            String name = d.getResult().toString();
+            for (User i : temp) {
+                if (name.equals(i.getName())) {
                     i.StartPage(window);
                 }
             }
@@ -116,7 +114,7 @@ public class ControllerLogin {
         }
     }
 
-    public void exit_button(){
+    public void exit_button() {
         Alert alert = new Alert(Alert.AlertType.NONE, "Do you want to exit the game?", ButtonType.YES, ButtonType.NO);
         alert.showAndWait();
         if (alert.getResult() == ButtonType.YES) {
@@ -125,9 +123,7 @@ public class ControllerLogin {
     }
 
     public void mouse_click(MouseEvent mouseEvent) {
-        window = (Stage) ((Node)mouseEvent.getSource()).getScene().getWindow();
+        window = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         System.out.println("received");
     }
-
-
 }

@@ -1,7 +1,7 @@
 package sample;
 
 public class InvalidUsernameException extends CustomException {
-    public InvalidUsernameException(){
+    public InvalidUsernameException() {
         super();
     }
 }

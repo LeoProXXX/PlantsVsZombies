@@ -10,10 +10,10 @@ public abstract class Plant extends Actor {
     public Plant(int x, int y, int speed, int price, int health, long waitingtime, int row, int col) {
         super(x, y, speed);
         this.price = price;
-        this.health=health;
-        this.waitingtime=waitingtime;
+        this.health = health;
+        this.waitingtime = waitingtime;
         this.row = row;
-        this.col=col;
+        this.col = col;
     }
 
     @Override
@@ -26,10 +26,11 @@ public abstract class Plant extends Actor {
     public int getHealth() {
         return health;
     }
+
     public void decreaseHealth(int damage) {
         health -= damage;
-        if(health<=0){
-            dead=true;
+        if (health <= 0) {
+            dead = true;
         }
     }
 
@@ -37,11 +38,11 @@ public abstract class Plant extends Actor {
         return waitingtime;
     }
 
-    public int getRow(){
+    public int getRow() {
         return row;
     }
 
-    public int getCol(){
+    public int getCol() {
         return col;
     }
 }

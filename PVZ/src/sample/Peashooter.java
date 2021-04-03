@@ -1,7 +1,8 @@
 package sample;
 
-public class Peashooter extends Shooter{
+public class Peashooter extends Shooter {
     private static long lastadded;
+
     public Peashooter(int x, int y, int row, int col) {
         super(x, y, 0, 100, 100, 10, 25, 2, row, col);
     }

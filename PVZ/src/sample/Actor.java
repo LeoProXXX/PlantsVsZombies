@@ -11,16 +11,17 @@ public abstract class Actor implements Serializable {
     protected boolean dead;
     private transient ImageView imView;
 
-    public Actor(int x, int y, int speed){
-        this.x=x;
-        this.y=y;
-        this.speed=speed;
-        this.dead=false;
+    public Actor(int x, int y, int speed) {
+        this.x = x;
+        this.y = y;
+        this.speed = speed;
+        this.dead = false;
     }
 
     public int getX() {
         return x;
     }
+
     public void setX(int x) {
         this.x += x;
     }
@@ -28,6 +29,7 @@ public abstract class Actor implements Serializable {
     public int getY() {
         return y;
     }
+
     public void setY(int y) {
         this.y += y;
     }
@@ -35,6 +37,7 @@ public abstract class Actor implements Serializable {
     public int getSpeed() {
         return speed;
     }
+
     public void setSpeed(int speed) {
         this.speed = speed;
     }
@@ -42,6 +45,7 @@ public abstract class Actor implements Serializable {
     public boolean isDead() {
         return dead;
     }
+
     public void setDead(boolean dead) {
         this.dead = dead;
     }

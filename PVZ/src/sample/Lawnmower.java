@@ -1,36 +1,36 @@
 package sample;
 
-public class Lawnmower extends Actor{
+public class Lawnmower extends Actor {
     private int limit;
     private boolean active;
     private int row;
-    public Lawnmower(int x, int  y, int row) {
+
+    public Lawnmower(int x, int y, int row) {
         super(x, y, 10);
-        limit=1000;
-        this.row=row;
-        active=false;
+        limit = 1000;
+        this.row = row;
+        active = false;
     }
 
     @Override
     public void act() {
-        if(x<limit){
+        if (x < limit) {
             setX(speed);
-        }
-        else{
-            dead=true;
-            active =false;
+        } else {
+            dead = true;
+            active = false;
         }
     }
 
-    public boolean getActive(){
+    public boolean getActive() {
         return active;
     }
 
-    public void setActive(boolean val){
-        active=val;
+    public void setActive(boolean val) {
+        active = val;
     }
 
-    public int getRow(){
+    public int getRow() {
         return row;
     }
 }
